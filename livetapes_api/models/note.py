@@ -5,4 +5,5 @@ class Note(models.Model):
         User, on_delete=models.CASCADE)
     show = models.ForeignKey("Show", on_delete=models.CASCADE, related_name="show_notes")
     note = models.CharField(max_length=255)
-    
+    opened= models.DateField(auto_now=True)
+    closed= models.DateField(auto_now=True) 
