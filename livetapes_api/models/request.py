@@ -5,4 +5,5 @@ class Request(models.Model):
         User, on_delete=models.CASCADE)
     show = models.ForeignKey("Show", on_delete=models.CASCADE, related_name="show_requests")
     request = models.CharField(max_length=255)
-    
+    opened= models.DateField(auto_now=True)
+    closed= models.DateField(auto_now=True) 
