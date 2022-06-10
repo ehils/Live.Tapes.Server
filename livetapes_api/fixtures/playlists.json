@@ -1,0 +1,34 @@
+[
+    
+    {
+      "model": "livetapes_api.playlist",
+      "pk": 1,
+      "fields": {
+        "name": "Dead Tunes",
+        "user": 1,
+        "created_on": "2022-06-08",
+        "tracks": [2,5,7,10,37,50]
+      }
+    },
+    {
+      "model": "livetapes_api.playlist",
+      "pk": 2,
+      "fields": {
+        "name": "more dead tunes",
+        "user": 2,
+        "created_on": "2022-06-09",
+        "tracks": [1,2,6,15,40,35,25]
+      }
+      },
+    {
+      "model": "livetapes_api.playlist",
+      "pk": 3,
+      "fields": {
+        "name": "hopeing to add more than just dead tunes",
+        "user": 2,
+        "created_on": "2022-06-10",
+        "tracks": [30,4,8,25,39,12]
+      }
+      }
+    
+]

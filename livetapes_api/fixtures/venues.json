@@ -1,0 +1,23 @@
+[
+    {
+      "model": "livetapes_api.venue",
+      "pk": 1,
+      "fields": {
+        "venue": "unknown"
+      }
+    },
+    {
+      "model": "livetapes_api.venue",
+      "pk": 2,
+      "fields": {
+        "venue": "Hundred Year Hall"
+      }
+    },
+    {
+      "model": "livetapes_api.venue",
+      "pk": 3,
+      "fields": {
+        "venue": "Winterland Arena"
+      }
+    }
+]

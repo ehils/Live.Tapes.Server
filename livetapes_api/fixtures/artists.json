@@ -1,0 +1,23 @@
+[
+    {
+      "model": "livetapes_api.artist",
+      "pk": 1,
+      "fields": {
+        "name": "unknown"
+      }
+    },
+    {
+      "model": "livetapes_api.artist",
+      "pk": 2,
+      "fields": {
+        "name": "Grateful Dead"
+      }
+    },
+    {
+      "model": "livetapes_api.artist",
+      "pk": 3,
+      "fields": {
+        "name": "The Velvet Underground"
+      }
+    }
+]

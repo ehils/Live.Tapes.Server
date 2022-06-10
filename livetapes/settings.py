@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e_y_7bwb(@1$ynuz4*_f3bimwrxzdhe45#br#qtv+--@mzs!k8'
+SECRET_KEY = os.environ.get('5shmfeglun09@et0#c2i(*!3=rmyhw=w&+hk0&r4kptfj2%#um')
+# 'django-insecure-e_y_7bwb(@1$ynuz4*_f3bimwrxzdhe45#br#qtv+--@mzs!k8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    'app_api'
+    'livetapes_api'
 ]
 
 MIDDLEWARE = [
@@ -68,7 +70,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:3000'
 )
 
-ROOT_URLCONF = 'app_project.urls'
+ROOT_URLCONF = 'livetapes.urls'
 
 TEMPLATES = [
     {
@@ -86,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'app_project.wsgi.application'
+WSGI_APPLICATION = 'livetapes.wsgi.application'
 
 
 # Database

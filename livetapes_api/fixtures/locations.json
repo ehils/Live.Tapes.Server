@@ -1,0 +1,23 @@
+[
+    {
+      "model": "livetapes_api.location",
+      "pk": 1,
+      "fields": {
+        "location": "unknown"
+      }
+    },
+    {
+      "model": "livetapes_api.location",
+      "pk": 2,
+      "fields": {
+        "location": "Frankfurt, Germany"
+      }
+    },
+    {
+      "model": "livetapes_api.location",
+      "pk": 3,
+      "fields": {
+        "location": "San Francisco, California"
+      }
+    }
+]

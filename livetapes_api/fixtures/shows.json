@@ -1,0 +1,26 @@
+[
+    {
+      "model": "livetapes_api.show",
+      "pk": 1,
+      "fields": {
+        "date":"1972-04-26",
+        "created_on": "2022-06-09",
+        "user": 1,
+        "artist": 2,
+        "venue": 2,
+        "location": 2
+      }
+    },
+    {
+      "model": "livetapes_api.show",
+      "pk": 2,
+      "fields": {
+        "date":"1974-02-24",
+        "created_on": "2022-06-09",
+        "user": 2,
+        "artist": 2,
+        "venue": 3,
+        "location": 3
+      }
+    }
+]

@@ -25,7 +25,8 @@ def login_user(request):
         # TODO: If you need to return more information to the client, update the data dict
         data = {
             'valid': True,
-            'token': token.key
+            'token': token.key,
+            'userId': token.user_id
         }
     else:
         data = { 'valid': False }
@@ -44,13 +45,17 @@ def register_user(request):
     new_user = User.objects.create_user(
         username=request.data['username'],
         password=request.data['password'],
+        first_name=request.data['first_name'],
+        last_name=request.data['last_name']
     )
 
     # TODO: If you're using a model with a 1 to 1 relationship to the django user, create that object here
-
     
     token = Token.objects.create(user=new_user)
     # TODO: If you need to send the client more information update the data dict
     
-    data = { 'token': token.key }
+    data = { 'valid': True,
+        'token': token.key,
+        'userId': token.user_id
+    } 
     return Response(data, status=status.HTTP_201_CREATED)
