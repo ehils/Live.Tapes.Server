@@ -18,12 +18,16 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 from livetapes_api.views import register_user, login_user
-from livetapes_api.views import ShowView, TrackView
+from livetapes_api.views import ShowView, TrackView, ArtistView, LocationView, VenueView, PlaylistView
 
 router = routers.DefaultRouter(trailing_slash=False)
 
 router.register(r'shows', ShowView, 'show')
 router.register(r'tracks', TrackView, 'track')
+router.register(r'artists', ArtistView, 'artist')
+router.register(r'locations', LocationView, 'location')
+router.register(r'venues', VenueView, 'venue')
+router.register(r'playlists', PlaylistView, 'playlist')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

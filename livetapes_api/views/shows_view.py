@@ -26,6 +26,12 @@ class ShowView(ViewSet):
         location = request.query_params.get('location', None)
         date = request.query_params.get('date', None)
         
+        search_term = request.query_params.get('search_term', None)
+        
+        if search_term is not None:
+            shows = shows.filter(
+                Q(artist__name__contains=search_term) | Q(tracks__name__contains= search_term)
+            )
         if user is not None:
             shows = shows.filter(user=user)
         if artist is not None:
@@ -44,7 +50,7 @@ class ShowView(ViewSet):
         artist, _ = Artist.objects.get_or_create(name=request.data['artist'])
         venue, _ = Venue.objects.get_or_create(venue=request.data['venue'])
         location, _ = Location.objects.get_or_create(location=request.data['location'])
-        serializer = CreateShowSerializer(data=request.data)
+        serializer = CreateShowSerializer(data=request.data)       
         serializer.is_valid(raise_exception=True)
         serializer.save(user=user, artist=artist, venue=venue, location=location)
         return Response(serializer.data, status=status.HTTP_201_CREATED)   
