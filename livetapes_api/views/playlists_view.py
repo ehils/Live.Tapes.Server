@@ -33,19 +33,20 @@ class PlaylistView(ViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     def update(self, request, pk):
         """_summary_"""
-        post = Playlist.objects.get(pk=pk)
-        serializer = CreatePlaylistSerializer(post, data=request.data)
+        playlist = Playlist.objects.get(pk=pk)
+        serializer = CreatePlaylistSerializer(playlist, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        # post.categories.remove(*post.categories.all())
-        # post.categories.add(*request.data['categories'])
-        post.tracks.remove(*post.tracks.all())
-        post.tracks.add(*request.data['tracks'])
+        # playlist.categories.remove(*playlist.categories.all())
+        # playlist.categories.add(*request.data['categories'])
+        playlist.tracks.remove(*playlist.tracks.all())
+        playlist.tracks.add(*request.data['tracks'])
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
     def destroy(self, request, pk):
         """_summary_"""
-        post = Playlist.objects.get(pk=pk)
-        post.delete()
+        playlist = Playlist.objects.get(pk=pk)
+        playlist.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    

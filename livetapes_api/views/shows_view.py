@@ -30,7 +30,7 @@ class ShowView(ViewSet):
         
         if search_term is not None:
             shows = shows.filter(
-                Q(artist__name__contains=search_term) | Q(tracks__name__contains= search_term)
+                Q(artist__name__contains=search_term) | Q(tracks__title__contains= search_term)
             )
         if user is not None:
             shows = shows.filter(user=user)
