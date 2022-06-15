@@ -19,7 +19,7 @@ class PlaylistView(ViewSet):
     def list(self, request):
         """_summary_"""
         playlists = Playlist.objects.all().order_by('-created_on')
-        user=request.query_params.get('user', None)
+        user=request.query_params.get('user_id', None)
         if user is not None:
             playlists = playlists.filter(user=user)
         serializer = PlaylistSerializer(playlists, many=True)

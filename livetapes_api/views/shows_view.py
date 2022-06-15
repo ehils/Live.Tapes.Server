@@ -20,7 +20,7 @@ class ShowView(ViewSet):
     def list(self, request):
         shows = Show.objects.all()
         
-        user=request.query_params.get('user', None)
+        user=request.query_params.get('user_id', None)
         artist = request.query_params.get('artist', None)
         venue = request.query_params.get('venue', None)
         location = request.query_params.get('location', None)
