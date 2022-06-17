@@ -21,9 +21,17 @@ class TrackView(ViewSet):
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
     
     def list(self, request):
-        tracks=Track.objects.all()
+        
+        tracks=Track.objects.all().order_by('track_number')
+        
+        search_term = request.query_params.get('search_term', None)
+        
+        if search_term is not None:
+            tracks = tracks.filter(Q(title__contains = search_term))
+        
         show=request.query_params.get('show', None)
-        if show is not None:
+        
+        if show is not None:      
             tracks = tracks.filter(show_id=show).order_by('track_number')
         serializer=TrackSerializer(tracks, many=True)
         return Response(serializer.data)

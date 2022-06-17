@@ -18,14 +18,13 @@ class ShowView(ViewSet):
         except Show.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
     def list(self, request):
-        shows = Show.objects.all()
+        shows = Show.objects.all().order_by('-created_on',)
         
         user=request.query_params.get('user_id', None)
         artist = request.query_params.get('artist', None)
         venue = request.query_params.get('venue', None)
         location = request.query_params.get('location', None)
         date = request.query_params.get('date', None)
-        
         search_term = request.query_params.get('search_term', None)
         
         if search_term is not None:

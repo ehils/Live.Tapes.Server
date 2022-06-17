@@ -5,11 +5,11 @@ class TrackSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Track
-        fields = ('id', 'name', 'url', 'track_number')
-     
+        fields = ('id', 'title', 'show', 'url', 'track_number')
+        depth = 2
 class CreateTrackSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Track
-        fields = ['name','url','track_number']
+        fields = ['title','url','track_number']
         

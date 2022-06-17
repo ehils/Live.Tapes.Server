@@ -6,3 +6,5 @@ class Track(models.Model):
     url = models.URLField(max_length=500)
     show = models.ForeignKey("Show", on_delete=models.CASCADE, related_name="tracks")
     favorites = models.ManyToManyField(User, through='FavoriteTrack', related_name='favorite_tracks')
+    class Meta:
+        ordering =['track_number']
