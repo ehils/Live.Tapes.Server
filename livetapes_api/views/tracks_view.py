@@ -22,7 +22,7 @@ class TrackView(ViewSet):
     
     def list(self, request):
         
-        tracks=Track.objects.all().order_by('track_number')
+        tracks=Track.objects.all()
         
         search_term = request.query_params.get('search_term', None)
         

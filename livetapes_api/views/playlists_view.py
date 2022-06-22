@@ -11,6 +11,8 @@ class PlaylistView(ViewSet):
         """_summary_"""
         try:
             playlist = Playlist.objects.get(pk=pk)
+            filtered_tracks = playlist.tracks.all().order_by('playlist_tracks__id')
+            playlist.tracks.set(filtered_tracks)  
             serializer = PlaylistSerializer(playlist)
             return Response(serializer.data)
         except Playlist.DoesNotExist as ex:
@@ -39,6 +41,7 @@ class PlaylistView(ViewSet):
         serializer.save()
         # playlist.categories.remove(*playlist.categories.all())
         # playlist.categories.add(*request.data['categories'])
+        # loop trough tracks
         playlist.tracks.remove(*playlist.tracks.all())
         playlist.tracks.add(*request.data['tracks'])
 
